@@ -29,6 +29,6 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
 
 	FuzzedDataProvider DataProvider(Data, Size);
 	std::string input = DataProvider.ConsumeRemainingBytesAsString();
-	int status = js_dostring(J, input.c_str());
-	return status;
+	js_dostring(J, input.c_str());
+	return 0;
 }
